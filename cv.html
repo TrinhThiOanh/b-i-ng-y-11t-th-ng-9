@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BÀI TẬP 2</title>
+    <!-- Gọi tệp JavaScript để xử lý -->
+    <script language="JavaScript">
+        function IBM() {
+            var weight = parseFloat(document.getElementById("a").value);  // Lấy giá trị cân nặng
+            var height = parseFloat(document.getElementById("b").value) / 100;  // Lấy giá trị chiều cao và chuyển từ cm sang mét
+            
+            // Kiểm tra nếu các giá trị nhập vào là số hợp lệ
+            if (!isNaN(weight) && !isNaN(height) && height > 0) {
+                // Tính chỉ số BMI
+                var bmi = weight / (height * height);
+                // Hiển thị kết quả trong ô input
+                document.getElementById("kq").value = bmi.toFixed(2);  // Giới hạn kết quả đến 2 chữ số thập phân
+            } else {
+                // Thông báo lỗi nếu nhập không đúng
+                document.getElementById("kq").value = "Nhập số hợp lệ!";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Tính chỉ số IBM (BMI)</h1>
+    <p>
+        Cân nặng (kg): <input type="text" id="a">
+    </p>
+    <p>
+        Chiều cao (cm): <input type="text" id="b">
+    </p>
+    <p>
+        <input type="button" value="Tính" onclick="IBM()">
+    </p>
+    <p>
+        Kết quả (BMI): <input type="text" id="kq" readonly>
+    </p>
+</body>
+</html>
